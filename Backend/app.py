@@ -69,7 +69,7 @@ def raiz():
     global Operaciones
     a = int(request.json['a'])
     b = int(request.json['b'])
-    resultado = (b**(1/a))
+    resultado = (a**(1/b))
     return jsonify({
         'message': 'success',
         'resultado': resultado
