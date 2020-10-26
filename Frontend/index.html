@@ -39,6 +39,10 @@
                     <label>Resultado</label>
                     <input id="resultado" type="text" class="form-control">
                  </div>
+                 <div>
+                    <label>Historial</label>
+                    <textarea name = "historial" id="historial" rows="10" cols="50" class="form-control"></textarea>
+                 </div>
               </form>
             </div>
         </div>
@@ -54,6 +58,7 @@
         var b = document.querySelector('#b').value
         var resultado = document.querySelector('#resultado')
         resultado.innerHTML = ""
+        var historial = document.querySelector('#historial')
         var objeto = {
             'a': a,
             'b': b
@@ -74,6 +79,8 @@
         console.log(response);
         console.log(response.message)
         resultado.value = response.resultado
+        historial.value +=
+        `${a} + ${b} =  ${response.resultado} \n`
         }) 
         }
 
@@ -82,6 +89,7 @@
         var b = document.querySelector('#b').value
         var resultado = document.querySelector('#resultado')
         resultado.innerHTML = ""
+        var historial = document.querySelector('#historial')
         var objeto = {
             'a': a,
             'b': b
@@ -102,6 +110,8 @@
         console.log(response);
         console.log(response.message)
         resultado.value = response.resultado
+        historial.value +=
+        `${a} - ${b} =  ${response.resultado} \n`
         }) 
         }
 
@@ -110,6 +120,7 @@
         var b = document.querySelector('#b').value
         var resultado = document.querySelector('#resultado')
         resultado.innerHTML = ""
+        var historial = document.querySelector('#historial')
         var objeto = {
             'a': a,
             'b': b
@@ -130,6 +141,8 @@
         console.log(response);
         console.log(response.message)
         resultado.value = response.resultado
+        historial.value +=
+        `${a} * ${b} =  ${response.resultado} \n`
         }) 
         }
 
@@ -138,6 +151,7 @@
         var b = document.querySelector('#b').value
         var resultado = document.querySelector('#resultado')
         resultado.innerHTML = ""
+        var historial = document.querySelector('#historial')
         var objeto = {
             'a': a,
             'b': b
@@ -158,6 +172,8 @@
         console.log(response);
         console.log(response.message)
         resultado.value = response.resultado
+        historial.value +=
+        `${a} / ${b} =  ${response.resultado} \n`
         }) 
         }
 
@@ -166,6 +182,7 @@
         var b = document.querySelector('#b').value
         var resultado = document.querySelector('#resultado')
         resultado.innerHTML = ""
+        var historial = document.querySelector('#historial')
         var objeto = {
             'a': a,
             'b': b
@@ -186,6 +203,8 @@
         console.log(response);
         console.log(response.message)
         resultado.value = response.resultado
+        historial.value +=
+        `${a} ^ ${b} =  ${response.resultado} \n`
         }) 
         }
 
@@ -194,6 +213,7 @@
         var b = document.querySelector('#b').value
         var resultado = document.querySelector('#resultado')
         resultado.innerHTML = ""
+        var historial = document.querySelector('#historial')
         var objeto = {
             'a': a,
             'b': b
@@ -214,36 +234,12 @@
         console.log(response);
         console.log(response.message)
         resultado.value = response.resultado
+        historial.value +=
+        `${a} ^ 1/${b} =  ${response.resultado} \n`
         }) 
         }
 
-        function potencia(){
-        var a = document.querySelector('#a').value
-        var b = document.querySelector('#b').value
-        var resultado = document.querySelector('#resultado')
-        resultado.innerHTML = ""
-        var objeto = {
-            'a': a,
-            'b': b
-        }
-        console.log(objeto)
-        fetch('http://127.0.0.1:3000/potencia', {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(objeto), // data can be `string` or {object}!
-        headers:{
-            'Content-Type': 'application/json'
-        }
-        }).then(res => res.json())
-        .catch(err => {
-        console.error('Error:', err)
-        alert("Ocurrio un error, ver la consola")
-        })
-        .then(response =>{
-        console.log(response);
-        console.log(response.message)
-        resultado.value = response.resultado
-        }) 
-        }
+       
 
     </script>
 
